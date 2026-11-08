@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "server-load",
+  "name": "服务器负载",
+  "description": "将已读取的服务器运行时长和 1/5/15 分钟负载展示成可点按的指标卡片。",
+  "version": "1.0.0",
+  "kind": "server_load",
+  "toolName": "ui_server_load"
+}
