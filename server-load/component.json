@@ -5,5 +5,64 @@
   "description": "将已读取的服务器运行时长和 1/5/15 分钟负载展示成可点按的指标卡片。",
   "version": "1.0.0",
   "kind": "server_load",
-  "toolName": "ui_server_load"
+  "toolName": "ui_server_load",
+  "template": [
+    {
+      "id": "title",
+      "component": "Text",
+      "text": "服务器负载",
+      "variant": "h3",
+      "items": [],
+      "children": [],
+      "align": ""
+    },
+    {
+      "id": "source",
+      "component": "Text",
+      "text": "${source}",
+      "variant": "body",
+      "items": [],
+      "children": [],
+      "align": ""
+    },
+    {
+      "id": "metrics",
+      "component": "CueboMetrics",
+      "text": "",
+      "variant": "",
+      "items": [
+        {
+          "label": "已运行时长",
+          "value": "${uptime}"
+        },
+        {
+          "label": "1 分钟负载",
+          "value": "${load1}"
+        },
+        {
+          "label": "5 分钟负载",
+          "value": "${load5}"
+        },
+        {
+          "label": "15 分钟负载",
+          "value": "${load15}"
+        }
+      ],
+      "children": [],
+      "align": ""
+    },
+    {
+      "id": "root",
+      "component": "Column",
+      "text": "",
+      "variant": "",
+      "items": [],
+      "children": [
+        "title",
+        "source",
+        "metrics"
+      ],
+      "align": "stretch"
+    }
+  ]
 }

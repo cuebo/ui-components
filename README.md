@@ -8,6 +8,6 @@
 
 ## 包规范（v1）
 
-`component.json` 是数据清单，字段为 `schemaVersion`、`id`、`name`、`description`、`version`、`kind`、`toolName`。本版只接受 `kind: server_load`、`id: server-load` 和 `toolName: ui_server_load`。界面组件不能携带 JavaScript、Swift 代码、网络地址或自定义 Agent 工具定义；App 和运行内核负责校验与渲染。新增种类需要先在 App 中实现、审核并发布。
+`component.json` 是数据清单，字段为 `schemaVersion`、`id`、`name`、`description`、`version`、`kind`、`toolName`、`template`。`template` 是按顺序排列的四个受限 A2UI 节点：标题、来源、CueboMetrics 指标网格和根容器；`${source}`、`${uptime}`、`${load1}`、`${load5}`、`${load15}` 由工具调用时填充。本版只接受 `kind: server_load`、`id: server-load` 和 `toolName: ui_server_load`。界面组件不能携带 JavaScript、Swift 代码、网络地址或自定义 Agent 工具定义；App 和运行内核负责校验与渲染。新增种类需要先在 App 中实现、审核并发布。
 
 仓库维护者更新组件时，需同步更新 `index.json` 中的版本及文件 SHA-256。这样下载文件与清单不一致时安装会失败。
