@@ -1,68 +1,49 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "server-load",
   "name": "服务器负载",
-  "description": "将已读取的服务器运行时长和 1/5/15 分钟负载展示成可点按的指标卡片。",
-  "version": "1.0.0",
-  "kind": "server_load",
+  "description": "展示服务器运行时长和 1/5/15 分钟负载。",
+  "version": "2.0.0",
   "toolName": "ui_server_load",
-  "template": [
+  "toolDescription": "用卡片展示已读取的服务器负载。先通过已授权的运行环境获取真实数据，不要猜测数值。",
+  "inputDescriptions": {
+    "source": "服务器名称和采样时间",
+    "uptime": "实测运行时长",
+    "load1": "实测 1 分钟负载",
+    "load5": "实测 5 分钟负载",
+    "load15": "实测 15 分钟负载"
+  },
+  "previewData": {
+    "source": "本机 local:default · 示例数据",
+    "uptime": "32 天 2 小时",
+    "load1": "1.62",
+    "load5": "2.52",
+    "load15": "3.07"
+  },
+  "messages": [
     {
-      "id": "title",
-      "component": "Text",
-      "text": "服务器负载",
-      "variant": "h3",
-      "items": [],
-      "children": [],
-      "align": ""
+      "version": "v0.9",
+      "createSurface": {
+        "surfaceId": "card",
+        "catalogId": "https://a2ui.org/specification/v0_9/basic_catalog.json"
+      }
     },
     {
-      "id": "source",
-      "component": "Text",
-      "text": "${source}",
-      "variant": "body",
-      "items": [],
-      "children": [],
-      "align": ""
-    },
-    {
-      "id": "metrics",
-      "component": "CueboMetrics",
-      "text": "",
-      "variant": "",
-      "items": [
-        {
-          "label": "已运行时长",
-          "value": "${uptime}"
-        },
-        {
-          "label": "1 分钟负载",
-          "value": "${load1}"
-        },
-        {
-          "label": "5 分钟负载",
-          "value": "${load5}"
-        },
-        {
-          "label": "15 分钟负载",
-          "value": "${load15}"
-        }
-      ],
-      "children": [],
-      "align": ""
-    },
-    {
-      "id": "root",
-      "component": "Column",
-      "text": "",
-      "variant": "",
-      "items": [],
-      "children": [
-        "title",
-        "source",
-        "metrics"
-      ],
-      "align": "stretch"
+      "version": "v0.9",
+      "updateComponents": {
+        "surfaceId": "card",
+        "components": [
+          {"id": "title", "component": "Text", "text": "服务器负载", "variant": "h3"},
+          {"id": "source", "component": "Text", "text": "${source}", "variant": "body"},
+          {"id": "metrics", "component": "CueboMetrics", "items": [
+            {"label": "已运行时长", "value": "${uptime}"},
+            {"label": "1 分钟负载", "value": "${load1}"},
+            {"label": "5 分钟负载", "value": "${load5}"},
+            {"label": "15 分钟负载", "value": "${load15}"}
+          ]},
+          {"id": "root", "component": "Column", "children": ["title", "source", "metrics"], "align": "stretch"}
+        ]
+      }
     }
   ]
 }

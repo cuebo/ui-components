@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 2,
+  "id": "service-health",
+  "name": "服务健康",
+  "description": "组合文本、容器和状态条目展示服务健康情况。",
+  "version": "1.0.0",
+  "toolName": "ui_service_health",
+  "toolDescription": "展示已检查的服务健康情况。先实际查询服务状态，再填写状态和检查项。",
+  "inputDescriptions": {
+    "service": "服务名称",
+    "status": "已检查的服务状态",
+    "uptimeDays": "已运行天数",
+    "checks": "检查项数组，每项包含 label 和 value"
+  },
+  "previewData": {
+    "service": "示例服务",
+    "status": "运行正常",
+    "uptimeDays": 32,
+    "checks": [
+      {"label": "API", "value": "正常"},
+      {"label": "数据库", "value": "正常"}
+    ]
+  },
+  "messages": [
+    {
+      "version": "v0.9",
+      "createSurface": {
+        "surfaceId": "card",
+        "catalogId": "https://a2ui.org/specification/v0_9/basic_catalog.json"
+      }
+    },
+    {
+      "version": "v0.9",
+      "updateComponents": {
+        "surfaceId": "card",
+        "components": [
+          {"id": "title", "component": "Text", "text": "${service}", "variant": "h3"},
+          {"id": "status", "component": "Text", "text": "${status}", "variant": "body"},
+          {"id": "uptime", "component": "Text", "text": "已运行 ${uptimeDays} 天", "variant": "body"},
+          {"id": "summary", "component": "Row", "children": ["status", "uptime"], "align": "center"},
+          {"id": "summaryCard", "component": "Card", "child": "summary"},
+          {"id": "checks", "component": "CueboInfo", "items": "${checks}"},
+          {"id": "root", "component": "Column", "children": ["title", "summaryCard", "checks"], "align": "stretch"}
+        ]
+      }
+    }
+  ]
+}

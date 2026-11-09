@@ -4,10 +4,18 @@
     {
       "id": "server-load",
       "name": "服务器负载",
-      "description": "将已读取的服务器运行时长和 1/5/15 分钟负载展示成可点按的指标卡片。",
-      "version": "1.0.0",
+      "description": "展示服务器运行时长和 1/5/15 分钟负载。",
+      "version": "2.0.0",
       "path": "server-load/component.json",
-      "sha256": "273c3adca4948e6cef757cbb26d7300349472a4bf187e6f7d61b4c2446689c55"
+      "sha256": "42de2df00677011f74f70ca3205a963d77d6aaa6c2be5e1f07bfba34b4949519"
+    },
+    {
+      "id": "service-health",
+      "name": "服务健康",
+      "description": "组合文本、容器和状态条目展示服务健康情况。",
+      "version": "1.0.0",
+      "path": "service-health/component.json",
+      "sha256": "32649a7d6bff5042a383ab6fbbe4cdc0c31ef35dbbaa3a8cd99c65eca62784bf"
     }
   ]
 }
