@@ -5,7 +5,6 @@
 ## 示例
 
 - [`server-load/`](server-load/component.json)：用 Cuebo 指标网格展示服务器负载。
-- [`service-health/`](service-health/component.json)：用 A2UI 的 `Text`、`Row`、`Card` 和 Cuebo 信息条目组合服务状态。它与服务器负载使用不同的节点结构，用于验证下载包无需 App 专门适配即可预览和调用。
 
 ## 包格式（v2）
 
@@ -25,7 +24,7 @@
 
 可使用 App 已支持的 Basic Catalog 基础节点（如 `Text`、`Image`、`Icon`、`Row`、`Column`、`List`、`Card`、`Divider`、`Button`），以及 `CueboMetrics`、`CueboInfo`、`CueboLinkList`、`CueboChart`。下载包只提供数据，不运行 JavaScript、Swift、HTML 或系统命令。当前按钮只允许经校验的 `open_url` 动作；若卡片需要读取服务器或其他真实数据，应让 Agent 先调用已授权的能力，再把结果传给卡片工具。
 
-包大小、节点数量、文本长度、输入深度和链接都会在安装与调用时校验。可参照两个示例直接写新的 `component.json`，无需给 App 增加专属组件分支。
+包大小、节点数量、文本长度、输入深度和链接都会在安装与调用时校验。可参照仓库中的示例直接写新的 `component.json`，无需给 App 增加专属组件分支。
 
 ## 更新商店清单
 
